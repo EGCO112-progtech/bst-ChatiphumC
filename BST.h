@@ -151,14 +151,14 @@ void printTreeProcess(TreeNodePtr treePtr, int depth)
 
       printTreeProcess(treePtr->rightPtr, depth);
 
-      printf("\n");
+      //printf("\n");
 
       for (int i = 5; i < depth; i++)
       {
-         printf("  ");
+         printf(" ");
       }
 
-      printf("(%d)\n", treePtr->data);
+      printf("%d\n", treePtr->data);
 
       printTreeProcess(treePtr->leftPtr, depth);   
    }
