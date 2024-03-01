@@ -142,3 +142,32 @@ void postOrder( TreeNodePtr treePtr )
    }
    
 } 
+
+void print2DUtil(TreeNodePtr treePtr, int space)
+{
+   if (!treePtr) 
+   {
+      return;
+   }
+
+   space += 5;
+
+   print2DUtil(treePtr->rightPtr, space);
+
+   printf("\n");
+
+   for (int i = 5; i < space; i++)
+   {
+      printf("  ");
+   }
+
+   printf("(%d)\n", treePtr->data);
+
+   print2DUtil(treePtr->leftPtr, space);
+}
+
+// Wrapper over print2DUtil()
+void print2D(TreeNodePtr treePtr)
+{
+   print2DUtil(treePtr, 0);
+}

@@ -34,6 +34,8 @@ int main( int argc, char **argv )
    postOrder( b.root );
 
    printf("\n");
+
+   print2D( b.root );
    
 } // end main
 
