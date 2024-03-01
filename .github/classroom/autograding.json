@@ -1,0 +1,44 @@
+{
+  "tests": [
+    {
+      "name": "Test1-pre",
+      "setup": "gcc main.c -o bst",
+      "run": "./bst 4 1 6 2 11 9 ",
+      "input": "",
+      "output": "preOrder\r\n  4  1  2  6 11  9",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test1-post",
+      "setup": "gcc main.c -o bst",
+      "run": "./bst 4 1 6 2 11 9 ",
+      "input": "",
+      "output": "postOrder\r\n  2  1  9 11  6  4",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test1-in",
+      "setup": "gcc main.c -o bst",
+      "run": "./bst 4 1 6 2 11 9 ",
+      "input": "inOrder\r\n  1  2  4  6  9 11",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test1 -tree",
+      "setup": "gcc main.c -o bst",
+      "run": "./bst 4 1 6 2 11 9",
+      "input": "",
+      "output": "        11\r\n              9\r\n    6\r\n4\r\n         2\r\n    1",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 36
+    }
+  ]
+}
