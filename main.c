@@ -33,7 +33,7 @@ int main( int argc, char **argv )
    printf("\npostOrder\n" );   
    postOrder( b.root );
 
-   printf("\n\n");
+   printf("\n");
 
    printTree( b.root );
    

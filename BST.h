@@ -147,7 +147,7 @@ void printTreeProcess(TreeNodePtr treePtr, int depth)
 {
    if (treePtr) 
    {
-      depth += 5;
+      depth += 4;
 
       printTreeProcess(treePtr->rightPtr, depth);
 
