@@ -155,10 +155,10 @@ void printTreeProcess(TreeNodePtr treePtr, int depth)
 
       for (int i = 5; i < depth; i++)
       {
-         printf("  ");
+         printf("   ");
       }
 
-      printf("%d\n", treePtr->data);
+      printf("%3d\n", treePtr->data);
 
       printTreeProcess(treePtr->leftPtr, depth);   
    }
