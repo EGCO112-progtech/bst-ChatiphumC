@@ -20,17 +20,17 @@ int main( int argc, char **argv )
 
    // traverse the tree preOrder
 
-   printf("\nThe preOrder traversal is:\n" );
+   printf("\npreOrder\n" );
    preOrder( b.root );
 
    // traverse the tree inOrder
 
-   printf("\nThe inOrder traversal is:\n" );
+   printf("\ninOrder\n" );
    inOrder( b.root );
 
    // traverse the tree postOrder
 
-   printf("\nThe postOrder traversal is:\n" );   
+   printf("\npostOrder\n" );   
    postOrder( b.root );
 
    printf("\n");
