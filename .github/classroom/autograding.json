@@ -35,7 +35,7 @@
       "setup": "gcc main.c -o bst",
       "run": "./bst 4 1 6 2 11 9",
       "input": "",
-      "output": "        11\r\n              9\r\n    6\r\n4\r\n         2\r\n    1",
+      "output": "       11\r\n           9\r\n     6\r\n  4\r\n        2\r\n     1",
       "comparison": "included",
       "timeout": 10,
       "points": 36
