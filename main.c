@@ -35,7 +35,7 @@ int main( int argc, char **argv )
 
    printf("\n");
 
-   print2D( b.root );
+   printTree( b.root );
    
 } // end main
 
