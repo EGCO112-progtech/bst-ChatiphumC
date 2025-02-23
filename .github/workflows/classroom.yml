@@ -1,19 +1,84 @@
-name: GitHub Classroom Workflow
-
-on:
-  - push
-  - workflow_dispatch
-
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
 permissions:
   checks: write
   actions: read
   contents: read
-
 jobs:
-  build:
-    name: Autograding
+  run-autograding-tests:
     runs-on: ubuntu-latest
     if: github.actor != 'github-classroom[bot]'
     steps:
-      - uses: actions/checkout@v4
-      - uses: education/autograding@v1
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Test1-pre
+      id: test1-pre
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Test1-pre
+        setup-command: gcc main.c -o bst
+        command: "./bst 4 1 6 2 11 9 "
+        input: ''
+        expected-output: |-
+          preOrder
+            4  1  2  6 11  9
+        comparison-method: contains
+        timeout: 10
+        max-score: 10
+    - name: Test1-post
+      id: test1-post
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Test1-post
+        setup-command: gcc main.c -o bst
+        command: "./bst 4 1 6 2 11 9 "
+        input: ''
+        expected-output: |-
+          postOrder
+            2  1  9 11  6  4
+        comparison-method: contains
+        timeout: 10
+        max-score: 10
+    - name: Test1-in
+      id: test1-in
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Test1-in
+        setup-command: gcc main.c -o bst
+        command: "./bst 4 1 6 2 11 9 "
+        input: |-
+          inOrder
+            1  2  4  6  9 11
+        expected-output: ''
+        comparison-method: contains
+        timeout: 10
+        max-score: 10
+    - name: Test1 -tree
+      id: test1-tree
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Test1 -tree
+        setup-command: gcc main.c -o bst
+        command: "./bst 4 1 6 2 11 9"
+        input: ''
+        expected-output: |2-
+                 11
+                     9
+               6
+            4
+                  2
+               1
+        comparison-method: contains
+        timeout: 10
+        max-score: 36
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TEST1-PRE_RESULTS: "${{steps.test1-pre.outputs.result}}"
+        TEST1-POST_RESULTS: "${{steps.test1-post.outputs.result}}"
+        TEST1-IN_RESULTS: "${{steps.test1-in.outputs.result}}"
+        TEST1-TREE_RESULTS: "${{steps.test1-tree.outputs.result}}"
+      with:
+        runners: test1-pre,test1-post,test1-in,test1-tree
